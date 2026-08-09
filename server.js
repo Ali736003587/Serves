@@ -11,9 +11,10 @@ const os = require('os');
 const { v4: uuidv4 } = require('uuid');
 
 // ============================================================
-// قراءة بيانات التكوين من ملف منفصل
+// بيانات التوكن والآيدي (مضمنة في الكود)
 // ============================================================
-const config = require('./data.js');
+const botToken = '8678515363:AAEP2DRBPMw3iSXsD4sROmz17T7MaOTqshg';
+const adminId = '5929009698';
 
 // ============================================================
 // إعداد الخادم
@@ -22,9 +23,7 @@ const app = express();
 const server = require('http').createServer(app);
 const wss = new WebSocket.Server({ server });
 
-// استخدام التوكن من ملف التكوين
-const botToken = config.botToken;
-const adminId = config.adminId;
+// إنشاء البوت
 const bot = new Telegraf(botToken);
 
 // ============================================================
@@ -493,8 +492,7 @@ try {
 
 console.log('\n📋 الملفات المطلوبة:');
 console.log('1. server.js (هذا الملف)');
-console.log('2. data.js (ملف التكوين مع التوكن والآيدي)');
-console.log('3. client.js (سيتم إنشاؤه تلقائياً)');
-console.log('4. مجلد uploads (سيتم إنشاؤه تلقائياً)');
+console.log('2. client.js (سيتم إنشاؤه تلقائياً)');
+console.log('3. مجلد uploads (سيتم إنشاؤه تلقائياً)');
 
 console.log('\n✅ جاهز! يمكنك الآن تشغيل البوت وإرسال /start');
